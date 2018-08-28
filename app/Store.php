@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Product;
 use App\StoreManager;
+use App\Manager;
 
 class Store extends Model
 {
@@ -26,6 +27,9 @@ class Store extends Model
         return StoreManager::where('store_id', $store_id)->get();
     }
     
+    public function manager(int $manager_id){
+        return Manager::where('id', $manager_id)->get();
+    }
     
     public function product()
     {

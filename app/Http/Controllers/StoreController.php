@@ -21,9 +21,11 @@ class StoreController extends Controller
         $data = $store->first();
         $products = $this->store_id->products($store_id);
         $query = $this->store_id->storemanager($store_id)->first();
+        
         if (!empty($query)){
             $manager_id = $query->manager_id;
-            $managers = Manager::find($manager_id)->get();
+            $managers = $this->store_id->manager($manager_id);
+            
         }
         else{
             $managers = "";

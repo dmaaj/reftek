@@ -23,4 +23,8 @@ class Manager extends Model
     public function storemanager(int $store_id){
         return Store_Manager::where('store_id', $store_id)->get();
     }
+
+    public function manager(int $manager_id){
+        return $this->where('id', $manager_id)->get();
+    }
 }
